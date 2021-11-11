@@ -106,15 +106,16 @@ window.addEventListener('scroll', scrollUp)
 const sr = ScrollReveal({
     origin: 'top',
     distance: '60px',
-    duration: 1500,
+    duration: 1000,
     delay: 400,
     // reset: true
 })
-sr.reveal(`.smholders, .benefit-container`,{origin: 'bottom',interval:150})
-sr.reveal(`.about-section, .about-content`,{origin: 'top',interval:50})
-sr.reveal(`.category__data, .trick__content, .footer__content`,{interval: 100})
-sr.reveal(`.about__data, .discount__img`,{origin: 'left'})
-sr.reveal(`.about__img, .discount__data`,{origin: 'right'})
+sr.reveal(`.benefit-container, benefit`,{origin: 'bottom',interval:150});
+sr.reveal(`.about-section, .about-content`,{origin: 'top',interval:50, reset: true});
+sr.reveal(`.mySwiper, .swiper-srapper`,{interval:150, reset: true})
+sr.reveal(`.category__data, .trick__content, .footer__content`,{interval: 100});
+sr.reveal(`.about__data, .discount__img`,{origin: 'left'});
+sr.reveal(`.about__img, .discount__data`,{origin: 'right'});
 
 const steps = document.querySelectorAll(".step");
 const timeline = document.querySelector(".timeline");
@@ -174,7 +175,7 @@ const controller = new ScrollMagic.Controller();
 
 //Scenes
 let scene = new ScrollMagic.Scene({
-  duration: 5000,
+  duration: 3000,
   triggerElement: intro,
   triggerHook: 0
 })
@@ -186,7 +187,7 @@ const textAnim = TweenMax.fromTo(intro, 3, { opacity: 1 }, { opacity: 0 });
 
 let scene2 = new ScrollMagic.Scene({
   duration: 600,
-  offset: 4800
+  offset: 2800
 
 })
   .setTween(textAnim)
@@ -195,7 +196,7 @@ let scene2 = new ScrollMagic.Scene({
 
   let scene3 = new ScrollMagic.Scene({
     duration: 600,
-    offset: 3500
+    offset: 1500
   
   })
     .setTween(textAnim1)
@@ -213,4 +214,4 @@ setInterval(() => {
   delay += (scrollpos - delay) * accelamount;
 
   video.currentTime = delay;
-}, 38);
+}, 23.3);
