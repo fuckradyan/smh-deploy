@@ -30,15 +30,17 @@ function linkAction(){
 navLink.forEach(n => n.addEventListener('click', linkAction))
 
 /*=============== HOME SWIPER ===============*/
-let homeSwiper = new Swiper(".home-swiper", {
-    spaceBetween: 30,
-    loop: 'true',
-    
-    pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-      },
-})
+var swiper = new Swiper(".mySwiper", {
+  slidesPerView: 4,
+  centeredSlides: false,
+  freeMode: true,
+  loop: 'true',
+  spaceBetween: 30,
+ 
+  pagination: {
+    el: ".swiper-pagination",
+  },
+});
 
 /*=============== CHANGE BACKGROUND HEADER ===============*/
 function scrollHeader(){
@@ -48,13 +50,7 @@ function scrollHeader(){
 }
 window.addEventListener('scroll', scrollHeader)
 
-/*=============== NEW SWIPER ===============*/
-let newSwiper = new Swiper(".new-swiper", {
-    centeredSlides: true,
-    slidesPerView: "auto",
-    loop: 'true',
-    spaceBetween: 16,
-});
+
 
 /*=============== SCROLL SECTIONS ACTIVE LINK ===============*/
 const sections = document.querySelectorAll('section[id]')
@@ -66,7 +62,6 @@ function scrollActive(){
         const sectionHeight = current.offsetHeight,
               sectionTop = current.offsetTop - 58,
               sectionId = current.getAttribute('id')
-
         if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight){
             document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.add('active-link')
         }else{
@@ -79,8 +74,31 @@ window.addEventListener('scroll', scrollActive)
 /*=============== SHOW SCROLL UP ===============*/ 
 function scrollUp(){
     const scrollUp = document.getElementById('scroll-up');
+    
     // When the scroll is higher than 460 viewport height, add the show-scroll class to the a tag with the scroll-top class
     if(this.scrollY >= 460) scrollUp.classList.add('show-scroll'); else scrollUp.classList.remove('show-scroll')
+    const header = document.getElementById('header');
+
+    const end = document.getElementById('end');
+    var elemRect = end.getBoundingClientRect();
+    const scrollDown = document.getElementById('scroll-down');
+    if (this.scrollY<=45){
+        scrollDown.classList.remove('d-none');
+        
+    } else {
+        scrollDown.classList.add('d-none');
+    }
+    if (window.outerWidth>767) {
+    if (prevScrollY<this.scrollY){
+        header.classList.add('test-dishow');
+        header.classList.remove('test-show');
+    }
+    else {
+        header.classList.add('test-show');
+        header.classList.remove('test-dishow');
+        
+    }
+}
 }
 window.addEventListener('scroll', scrollUp)
 
@@ -88,15 +106,16 @@ window.addEventListener('scroll', scrollUp)
 const sr = ScrollReveal({
     origin: 'top',
     distance: '60px',
-    duration: 2500,
+    duration: 1500,
     delay: 400,
     // reset: true
 })
-
-sr.reveal(`.home-swiper, .new-swiper, .newsletter__container`)
+sr.reveal(`.smholders, .benefit-container`,{origin: 'bottom',interval:150})
+sr.reveal(`.about-section, .about-content`,{origin: 'top',interval:50})
 sr.reveal(`.category__data, .trick__content, .footer__content`,{interval: 100})
 sr.reveal(`.about__data, .discount__img`,{origin: 'left'})
 sr.reveal(`.about__img, .discount__data`,{origin: 'right'})
+
 const steps = document.querySelectorAll(".step");
 const timeline = document.querySelector(".timeline");
 const line = document.querySelector(".line");
@@ -140,11 +159,58 @@ function scrollHandler(e) {
 
 scrollHandler();
 window.addEventListener("scroll", scrollHandler);
-function ready() {
-    alert('DOM готов');
 
-    // изображение ещё не загружено (если не было закешировано), так что размер будет 0x0
-    alert(`Размер изображения: ${img.offsetWidth}x${img.offsetHeight}`);
-  }
 
-  document.addEventListener("DOMContentLoaded", ready);
+
+const intro = document.querySelector(".intro");
+const video = intro.querySelector("video");
+const text = intro.querySelector("h1");
+//END SECTION
+
+const end = document.querySelector("#end");
+
+//SCROLLMAGIC
+const controller = new ScrollMagic.Controller();
+
+//Scenes
+let scene = new ScrollMagic.Scene({
+  duration: 5000,
+  triggerElement: intro,
+  triggerHook: 0
+})
+  .setPin(intro)
+  .addTo(controller);
+
+//Text Animation
+const textAnim = TweenMax.fromTo(intro, 3, { opacity: 1 }, { opacity: 0 });
+
+let scene2 = new ScrollMagic.Scene({
+  duration: 600,
+  offset: 4800
+
+})
+  .setTween(textAnim)
+  .addTo(controller);
+  const textAnim1 = TweenMax.fromTo(text, 3, { opacity: 0 }, { opacity: 1 });
+
+  let scene3 = new ScrollMagic.Scene({
+    duration: 600,
+    offset: 3500
+  
+  })
+    .setTween(textAnim1)
+    .addTo(controller);
+//Video Animation
+let accelamount = 0.1;
+let scrollpos = 0;
+let delay = 0;
+
+scene.on("update", e => {
+  scrollpos = e.scrollPos / 1000;
+});
+
+setInterval(() => {
+  delay += (scrollpos - delay) * accelamount;
+
+  video.currentTime = delay;
+}, 38);
