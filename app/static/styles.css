@@ -76,6 +76,7 @@
     --small-font-size: .875rem;
     --smaller-font-size: .813rem;
   }
+
 }
 
 /*=============== BASE ===============*/
@@ -150,10 +151,10 @@ button{
 .about-section{
   
   padding: 3rem 3rem;
-  height: 60vh;
+  height: auto;
   min-height: 670px;
-
-  
+  background: linear-gradient(var(--body-color),transparent 90%,var(--body-color)), url("../static/images/mouse-hole.png") center center no-repeat;
+  background-size: cover;
 }
 .section__title{
   font-size: var(--h2-font-size);
@@ -172,6 +173,10 @@ button{
   overflow: hidden;
   background:var(--container-color);
   border-radius:5rem;
+  box-shadow: 150px 10px -80px 30px rgba(245, 0, 0, 0.75);
+}
+.welcome-container:hover {
+  opacity: 0.7 !important;
 }
 .container{
   max-width: 968px;
@@ -255,12 +260,13 @@ li a:hover,.nav__logo:hover,i:hover, a i:hover, ul a:hover{
 
 .about-section{
   padding: 3rem 3rem;
+  min-height: 900px;
   /* background-image: linear-gradient( var(--body-color),#734f96 , var(--body-color) ),linear-gradient(to right,var(--body-color),#734f96 20%, var(--body-color)); */
   /* background: linear-gradient(to right,var(--body-color),#734f96 , var(--body-color)); */
 
 }
 .about-section:hover:before{
-  opacity: 0.3;
+  opacity: 1;
 }
 .about-img{
   max-width: 65%;
@@ -303,9 +309,15 @@ li a:hover,.nav__logo:hover,i:hover, a i:hover, ul a:hover{
   animation: fadeout 1s forwards;
 }
 @keyframes fadeout{
+  99%{
+    opacity: 0;
+    visibility: hidden;
+    
+  }
   100%{
     opacity: 0;
     visibility: hidden;
+    display: none;
   }
 }
 img.rot {
@@ -454,7 +466,7 @@ img.rot {
   row-gap: 1rem;
 }
 #SMHolders {
-  min-height: 700px;
+  min-height: 800px;
 }
 .cheese-bg{
   background: transparent;
@@ -464,6 +476,7 @@ img.rot {
 
   padding-right: 1rem;
   padding-left: 1rem;
+  min-height: 850px;
 }
 .home__content  {
   padding-bottom: 0px;
@@ -730,7 +743,9 @@ img.rot {
   width: 200px;
   justify-self: center;
 }
-
+.benefig-img {
+  height: 150px;
+}
 /*=============== NEW ARRIVALS ===============*/
 .new__container{
   padding-top: 1rem;
@@ -1087,9 +1102,7 @@ h1{
   .about-section{
     padding: 3rem 3rem;
   }
-  .benefit{
-    max-width: 35%;
-  }
+
   .nav{
     height: calc(var(--header-height) + 1.5rem);
   }
@@ -1177,7 +1190,10 @@ h1{
 /* For large devices */
 @media screen and (min-width: 992px){
   h1{
-    font-size: 2.3rem;
+    font-size: 3.4rem ;
+  }
+  .benefit{
+    max-width: 33%;
   }
   .benefit h1{
     font-size: 2.6rem;
@@ -1490,7 +1506,6 @@ ol.gradient-list > li + li {
 
 #SMHolders{
   width: 100vw;
-  height: 100vh;
 }
 #SMHome {
   background-size: 100%;
@@ -1539,7 +1554,14 @@ ol.gradient-list > li + li {
   position: absolute;
   top: -10%;
   right: 5%;
-  z-index: 1;
+  z-index: 0;
+}
+.rocket-animated{
+  height: 150px;
+  position: absolute;
+  top: 70%;
+  left: -8%;
+  z-index: 0;
 }
 .intro {
   height: 100vh;

@@ -71,12 +71,12 @@
         <main class="main">
           <div class="loader ">
             <div class="row justify-content-center align-center text-center">
-            <h3>Entering SMH...</h3>
+            <h3 class="mb-3">Entering SMH...</h3>
 
             <div class="d-flex justify-content-center align-center text-center">
-              <img src="../static/images/cheese.png"class="rot" alt="">
-              <img src="../static/images/cheese.png"class="rot" alt="">
-              <img src="../static/images/cheese.png"class="rot" alt="">
+              <img src="../static/images/roadmap/cheese.png"class="rot my-1" alt="">
+              <img src="../static/images/roadmap/cheese.png"class="rot my-1" alt="">
+              <img src="../static/images/roadmap/cheese.png"class="rot my-1" alt="">
             </div>
             </div>
           </div>
@@ -92,9 +92,9 @@
               <h1 id="end" ></h1>
             </section>
                             <!-- About SMH -->
-            <section class="section about-section"  id="About">
+            <section class="section d-flex about-section justify-content-center align-center text-center"  id="About">
 
-              <div class="container welcome-container">
+              <div class="container welcome-container " id="welcome-container">
                 <div class="row" style="height:100%; overflow:hidden;">
                   <div class="col-md-5" style="overflow:hidden; position:relative">
                     <img src="../static/images/Welcome.png" class="welcome-img"alt="">
@@ -113,64 +113,39 @@
                     </h4>
                   </div>
                 </div>
-                <!-- <img src="../static/images/Welcome.png" class="about-img img-responsive"alt="">
-                <div class="about-text">
-                  <h1>
-                    Hey Buddy!
-                  </h1>
-                  <p>
-                    We have gathered you here to start a fight against the fluffiest creatures in the house ...
-                     <br>
-That's why we founded Sneaky Mice House. Our main goals are eating as much cheese as possible, making noises at night and doing big pranks over meows.
-                  </p>
-                  <h4>
-                    Maximum House residents: 1122 Mice 
-                  </h4>
-                </div> -->
+
               </div>
             </section>
             
             <!--==================== Holder Benefits ====================-->
             <section class="section about p-1 smholders"  id="SMHolders">
               <h1 class="text-center" >HOLDER BENEFITS</h1>
-              <div class="cheese-bg p-1" style="width: 100%; height: 100%;">
-                <!-- <div class="about__container container">
-                    <div class="about__data">
-                        <h1 class="section__title about__title">HOLDER BENEFITS</h1>
-                        <ol class="gradient-list">
-                          
-                        <li> <h5> EXPANSION OF THE METAVERSE </h5> After mint we will announce new characters in SMH Metaverse.</li>
-                            <li> <h5> EXCLUSIVE CONTESTS ONLY FOR HOLDERS </h5>When mint will exceed 60% we'll raffle 5000$ only for holders</li>
-                            <li><h5> BABY MOUSE DROP </h5>After 3 weeks.</li>
-                            
-                        </ol>
+              <div class="cheese-bg p-1">
 
-                    </div>
-                </div> -->
                 
-              <div class="justify-content-center d-md-flex p-2 benefit-container">
+              <div class="justify-content-center d-lg-flex p-2 benefit-container">
                 <div class="benefit p-5 mx-2 my-2" >
                   <div>
                     
                     <h1>EXPANSION OF THE METAVERSE</h1>
-                    <img src="../static/images/SMHolders/cat_logo.png"  class="mb-5"alt="">
-                      <p>After mint we will announce new characters in SMH Metaverse.</p>
+                    <img src="../static/images/benefits/cat.png"  class="mb-3 mt-1 benefig-img"alt="">
+                    <p>After mint we will announce new characters in SMH Metaverse.</p>
                   </div>
                 </div>
                 <div class="benefit  p-5 mx-2 my-2" >
                   <div >
 
-                    <i class="fa-solid fa-circle-plus py-3" style="font-size:6rem;"></i>
                     <h1>EXCLUSIVE CONTESTS ONLY FOR HOLDERS</h1>
-                      <p>When mint will exceed 60% we'll raffle 5000$ only for holders.</p>
+                    <img src="../static/images/benefits/supply.png"  class="mb-3 mt-1 benefig-img"alt="">
+                    <p>When mint will exceed 60% we'll raffle 5000$ only for holders.</p>
                   </div>
                 </div>
                 <div class="benefit  p-5 mx-2 my-2" >
                   <div>
                     
-                    <h1>BABY MOUSE DROP</h1>
-                      <p>After 3 weeks minting started holders will get Baby Mouse for every Sneaky Mouse in their wallet.</p>
-                      <i class="fa-solid fa-circle-plus py-3" style="font-size:6rem;"></i>
+                    <h1>DARLING WE ARE WAITING FOR BABY MOUSE</h1>
+                    <img src="../static/images/benefits/baby-mouse.png"  class="mb-3 mt-1 benefig-img"alt="">
+                    <p>After 3 weeks minting started holders will get Baby Mouse for every Sneaky Mouse in their wallet.</p>
                   </div>
                 </div>
                 </div>
@@ -199,7 +174,8 @@ That's why we founded Sneaky Mice House. Our main goals are eating as much chees
             </div>
             </section>
             <section class="section trick" id="Roadmap">
-              <img src="../static/images/cheese.png" class="cheese-animated" alt="cheese">
+              <img src="../static/images/roadmap/cheese.png" class="cheese-animated" alt="cheese">
+              <img src="../static/images/roadmap/rocket.png" class="rocket-animated"alt="rocket">
               <div class="text-center">
                 <h1 class="s">ROADMAP</h1>
                 <hr style="margin:auto; width: 5%; height:4px;  border:0; background-color:white; opacity:1; ">
@@ -341,6 +317,7 @@ That's why we founded Sneaky Mice House. Our main goals are eating as much chees
         <script src="../static/swiper-bundle.min.js"></script>
         
         <!--=============== MAIN JS ===============-->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/MotionPathPlugin.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/ScrollMagic.min.js" integrity="sha512-8E3KZoPoZCD+1dgfqhPbejQBnQfBXe8FuwL4z/c8sTrgeDMFEnoyTlH3obB4/fV+6Sg0a0XF+L/6xS4Xx1fUEg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>

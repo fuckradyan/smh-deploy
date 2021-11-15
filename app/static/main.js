@@ -138,11 +138,10 @@ const sr = ScrollReveal({
     delay: 400,
     // reset: true
 })
-sr.reveal(`.benefit-container, benefit`,{origin: 'bottom',interval:150});
-sr.reveal(`.about-section, .about-content`,{origin: 'top',interval:50, reset: true});
+sr.reveal(`.benefit-container, .benefit`,{origin: 'bottom',interval:150});
+sr.reveal(`.welcome-container, .row`,{origin: 'top',interval:50, reset: true});
 sr.reveal(`.mySwiper, .swiper-srapper`,{interval:150, reset: true})
 sr.reveal(`.category__data, .trick__content, .footer__content`,{interval: 100});
-sr.reveal(`.about__data, .discount__img`,{origin: 'left'});
 sr.reveal(`.about__img, .discount__data`,{origin: 'right'});
 
 const steps = document.querySelectorAll(".step");
@@ -276,7 +275,7 @@ const cheeseScene = new ScrollMagic.Scene(
   {
 triggerElement: '.trick',
 duration:2500,
-triggerHook: 0.7
+triggerHook: 0.8
 
   })
   .setTween(tween)
@@ -287,3 +286,88 @@ gsap.timeline()
     .from('.nav__logo',{opacity:0,scale:0,ease:"back"})
     .from('.nav__list li', {y:-160,stagger:0.1,duration:0.3,ease:"back"})
     .from('.nav__list a', {opacity:0,xPercent:100,stagger:0.1,duration:0.5,ease:"back"})
+const tween1 = new TimelineLite();
+tween1.add(
+  TweenLite.to('.rocket-animated', 1, {
+    motionPath: {
+      curviness: 3,
+      autoRotate: true,
+      path: [
+        // {
+        //   x: -window.innerHeight/15,
+        //   y: window.innerHeight/5
+        // },
+        // {
+        //   x: -rWidth*2.5,
+        //   y: rHeight/0.8
+        // },
+        {
+          x:100,
+          y:-20
+        },
+        {
+          x:300,
+          y:10
+        },
+        {
+          x:500,
+          y:100
+        },
+        {
+          x:750,
+          y:-20
+        },
+        {
+          x:100,
+          y:-20
+        },
+        {
+          x:100,
+          y:-20
+        },
+        {
+          x:100,
+          y:-20
+        },
+        // {
+        //   x: rWidth*0.5 ,
+        //   y: -rHeight/2.2
+        // },
+        // {
+        //   x: rWidth*0.5 ,
+        //   y: -rHeight/2.2
+        // },
+        // {
+        //   x: rWidth*0.3,
+        //   y: -rHeight/3
+        // },
+        // {
+        //   x: rWidth*0.3,
+        //   y: -rHeight/4
+        // },
+          ]
+        },
+        ease: Power1.easeInOut
+      })
+    );
+    
+    const rocketScene = new ScrollMagic.Scene(
+      {
+    triggerElement: '.trick',
+    offset:1000,
+    duration:2500,
+    triggerHook: 1
+    
+      })
+      .setTween(tween1)
+      .addTo(controller);
+
+
+
+// $(function () { // wait for document ready
+//   // build scene
+//   var scene = new ScrollMagic.Scene({triggerElement: "#About"})
+//           .setPin("#welcome-container")
+//           .addIndicators({name: "1 (duration: 300)"}) // add indicators (requires plugin)
+//           .addTo(controller);
+// });
