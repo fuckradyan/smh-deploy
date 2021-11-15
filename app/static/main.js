@@ -1,11 +1,8 @@
 function ready(){
   if (iOS()) {
     console.log('dats iOS chill')
-    alert("didn't remove")
   } else {
     document.getElementById('welcomevid').removeAttribute('autoplay');
-    document.getElementById('welcomevid').removeAttribute('loop');
-    alert('removed')
 
   }
 }
