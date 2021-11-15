@@ -26,7 +26,7 @@
 
         <!--==================== Header ====================-->
         <header class="header" id="header">
-            <nav class="nav container">
+            <nav class="nav container nav__container">
                 <a href="#" class="nav__logo">
                     Sneaky Mice House &#129472;
                 </a>
@@ -69,11 +69,21 @@
         </header>
 
         <main class="main">
+          <div class="loader ">
+            <h3>Entering SMH...</h3>
+            <br>
+            <div class="d-flex">
+            <img src="../static/images/cheese.png"class="rot" alt="">
+            <img src="../static/images/cheese.png"class="rot" alt="">
+            <img src="../static/images/cheese.png"class="rot" alt="">
+          </div>
+            
+          </div>
             <!--==================== Welcome ====================-->
             <div class="intro" id="intro">
               <div class="scroll-down text-center" id="scroll-down"> <i class="fa-solid fa-arrow-down arrowDown"></i></div>
               <h1 style="opacity: 0;">Welcome home!</h1>
-              <video src="../static/videos/SMH_norka2.mp4" type="video/mp4" id="welcomevid" preload="auto" muted  autoplay>
+              <video src="../static/videos/SMH_norka2.mp4" poster="../static/images/XOsX.gif" type="video/mp4" id="welcomevid" preload="auto" muted  >
                 
               </video>
             </div>
@@ -142,7 +152,7 @@ That's why we founded Sneaky Mice House. Our main goals are eating as much chees
                   <div>
                     
                     <h1>EXPANSION OF THE METAVERSE</h1>
-                    <img src="../static/images/cat_logo.png"  class="mb-5"alt="">
+                    <img src="../static/images/SMHolders/cat_logo.png"  class="mb-5"alt="">
                       <p>After mint we will announce new characters in SMH Metaverse.</p>
                   </div>
                 </div>
@@ -188,6 +198,7 @@ That's why we founded Sneaky Mice House. Our main goals are eating as much chees
             </div>
             </section>
             <section class="section trick" id="Roadmap">
+              <img src="../static/images/cheese.png" class="cheese-animated" alt="cheese">
               <div class="text-center">
                 <h1 class="s">ROADMAP</h1>
                 <hr style="margin:auto; width: 5%; height:4px;  border:0; background-color:white; opacity:1; ">
@@ -265,73 +276,6 @@ That's why we founded Sneaky Mice House. Our main goals are eating as much chees
 
             <!--==================== OUR NEWSLETTER ====================-->
             <section class="section newsletter" id="FAQ">
-                <!-- <div class="newsletter__container container">
-                    <h1 class="mb-3">FAQ</h1>
-                    
-
-                    <div class="accordion" id="accordionExample">
-                        <div class="accordion-item">
-                          <h2 class="accordion-header" id="headingOne">
-                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                              What't the total suply of the SMH?
-                            </button>
-                          </h2>
-                          <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                            <div class="accordion-body">
-                                Only 1122.
-                            </div>
-                          </div>
-                        </div>
-                        <div class="accordion-item">
-                          <h2 class="accordion-header" id="headingTwo">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                             What's the minting cost?
-                            </button>
-                          </h2>
-                          <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                            <div class="accordion-body">
-                                The minting cost is 0.99 SOL, 0.75 SOL for presale
-                            </div>
-                          </div>
-                        </div>
-                        <div class="accordion-item">
-                          <h2 class="accordion-header" id="headingThree">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                              When is the launch date?
-                            </button>
-                          </h2>
-                          <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                            <div class="accordion-body">
-                              TBA
-                            </div>
-                          </div>
-                        </div>
-                        <div class="accordion-item">
-                          <h2 class="accordion-header" id="headingFive">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                              Can I get more than 1 Mouse?
-                            </button>
-                          </h2>
-                          <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
-                            <div class="accordion-body">
-                                If you are fast enough...you can try
-                            </div>
-                          </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingSix">
-                              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-                                Which wallet will be available?
-                              </button>
-                            </h2>
-                            <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                              <div class="accordion-body">
-                                You will be able to mint SMH with Phantom (recommended), Sollet, and Solflare.
-                              </div>
-                            </div>
-                          </div>
-                      </div>
-                </div> -->
                 <h1 class="text-center">FAQ</h1>
                 <div class="seperator m-auto"></div>
                 <div id="faq" class="faq-body">
@@ -396,7 +340,8 @@ That's why we founded Sneaky Mice House. Our main goals are eating as much chees
         <script src="../static/swiper-bundle.min.js"></script>
         
         <!--=============== MAIN JS ===============-->
-        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/MotionPathPlugin.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/ScrollMagic.min.js" integrity="sha512-8E3KZoPoZCD+1dgfqhPbejQBnQfBXe8FuwL4z/c8sTrgeDMFEnoyTlH3obB4/fV+6Sg0a0XF+L/6xS4Xx1fUEg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/plugins/animation.gsap.min.js" integrity="sha512-5/OHwmQzDSBS0Ous4/hlYoWLHd06/d2r7LdKZQVBXOA6PvOqWVXtdboiLTU7lQTGyVoKVTNkwi0ol4gHGlw5ww==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/plugins/debug.addIndicators.min.js" integrity="sha512-RvUydNGlqYJapy0t4AH8hDv/It+zKsv4wOQGb+iOnEfa6NnF2fzjXgRy+FDjSpMfC3sjokNUzsfYZaZ8QAwIxg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -404,6 +349,9 @@ That's why we founded Sneaky Mice House. Our main goals are eating as much chees
       <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenLite.min.js" integrity="sha512-5nTpER5HrSoRPyd8szIn2QglL3A54KJs4XOcX3SdHTbLb8TO/5wLqoFYSFGNyhzZy7CFAOZf66X3ikr2v7Bfuw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TimelineLite.min.js" integrity="sha512-UznfQR3LKkKPL0k7HISMqOsmUCjVhjWK8HlR0Pxo5JpjN8eZ8XRwKBRX6OTOQIO0FYOl8Oue+4dG4uHtx1SgKQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/plugins/CSSPlugin.min.js" integrity="sha512-Xc+rcY3w0DANwcFGWBcnBf2dw/p5a4IBAKqHdBJScNOnIH+qoQYE6xuWEdW3wiP7Q+XvL9MacrnKkzoP0Kexug==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/plugins/BezierPlugin.min.js" integrity="sha512-H0dUDNDv/uVTWqjYbXjaHb5mILJYXUJ9g36b/Ye/Jt/wk1tVPi8M99AEPbPEBkwL/jysKfLg6sN+kvElcJuESw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      
+      
       <script src="../static/main.js"></script>
       <link
       rel="stylesheet"

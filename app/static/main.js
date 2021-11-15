@@ -1,3 +1,18 @@
+function ready(){
+  var iOS = !window.MSStream && /iPad|iPhone|iPod/.test(navigator.userAgent);
+  if (iOS) {
+    console.log('dats iOS chill')
+  } else {
+    document.getElementById('welcomevid').removeAttribute('autoplay');
+  }
+}
+ document.addEventListener("DOMContentLoaded", ready);
+var loader = document.querySelector(".loader");
+window.addEventListener("load", vanish);
+function vanish(){
+  loader.classList.add("vanish");
+}
+gsap.registerPlugin(MotionPathPlugin);
 /*=============== SHOW MENU ===============*/
 const navMenu = document.getElementById('nav-menu'),
       navToggle = document.getElementById('nav-toggle'),
@@ -214,4 +229,48 @@ setInterval(() => {
   delay += (scrollpos - delay) * accelamount;
 
   video.currentTime = delay;
-}, 23.3);
+}, 33.3);
+// flying cheese
+
+const rHeight = document.getElementById('Roadmap').offsetHeight;
+const rWidth = document.getElementById('Roadmap').offsetWidth;
+
+
+const tween = new TimelineLite();
+
+tween.add(
+  TweenLite.to('.cheese-animated', 1, {
+    motionPath: {
+      curviness: 1,
+      autoRotate: true,
+      path: [
+        // {
+        //   x: -window.innerHeight/15,
+        //   y: window.innerHeight/5
+        // },
+        {
+          x: -rWidth*2.5,
+          y: rHeight/0.8
+        },
+    
+      ]
+    },
+    ease: Power1.easeInOut
+  })
+);
+
+const cheeseScene = new ScrollMagic.Scene(
+  {
+triggerElement: '.trick',
+duration:2500,
+triggerHook: 0.7
+
+  })
+  .setTween(tween)
+  .addTo(controller);
+
+gsap.timeline()
+    .from('.nav__container',{duration:1.2,opacity:0})
+    .from('.nav__logo',{opacity:0,scale:0,ease:"back"})
+    .from('.nav__list li', {y:-160,stagger:0.1,duration:0.3,ease:"back"})
+    .from('.nav__list a', {opacity:0,xPercent:100,stagger:0.1,duration:0.5,ease:"back"})
