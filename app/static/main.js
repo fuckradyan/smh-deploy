@@ -1,11 +1,27 @@
 function ready(){
-  var iOS = !window.MSStream && /iPad|iPhone|iPod/.test(navigator.userAgent);
-  if (iOS) {
+  if (iOS()) {
     console.log('dats iOS chill')
+    alert("didn't remove")
   } else {
     document.getElementById('welcomevid').removeAttribute('autoplay');
+    document.getElementById('welcomevid').removeAttribute('loop');
+    alert('removed')
+
   }
 }
+function iOS() {
+  return [
+    'iPad Simulator',
+    'iPhone Simulator',
+    'iPod Simulator',
+    'iPad',
+    'iPhone',
+    'iPod'
+  ].includes(navigator.platform)
+  // iPad on iOS 13 detection
+  || (navigator.userAgent.includes("Mac") && "ontouchend" in document)
+}
+
  document.addEventListener("DOMContentLoaded", ready);
 var loader = document.querySelector(".loader");
 window.addEventListener("load", vanish);
