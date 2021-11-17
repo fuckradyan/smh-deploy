@@ -192,6 +192,7 @@ button{
 /*=============== REUSABLE CSS CLASSES ===============*/
 .section{
   padding: 4.5rem 0 2rem;
+
 }
 .about-section{
   
@@ -200,6 +201,8 @@ button{
   min-height: 670px;
   background: linear-gradient(var(--body-color),transparent 90%,var(--body-color)), url("../static/images/mouse-hole.png") center center no-repeat;
   background-size: cover;
+  scroll-snap-align: start !important;
+  scroll-snap-stop: always !important;
 }
 .section__title{
   font-size: var(--h2-font-size);
@@ -218,6 +221,7 @@ button{
   overflow: hidden;
   background:var(--container-color);
   border-radius:5rem;
+
 }
 .welcome-container:hover {
   
@@ -252,7 +256,7 @@ li a:hover,.nav__logo:hover,i:hover, a i:hover, ul a:hover{
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 200;
+  z-index: 205;
 }
 
 /*=============== NAV ===============*/
@@ -303,6 +307,9 @@ li a:hover,.nav__logo:hover,i:hover, a i:hover, ul a:hover{
 
 }
 
+.step .content {
+  font-size: 1.5rem;
+}
 .about-section{
   padding: 3rem 3rem;
   min-height: 900px;
@@ -1082,6 +1089,9 @@ h1{
 }
 .countdown-container{
   max-width: 85%;
+}
+.benefit h1 {
+  font-size: 2.3rem;
 }
 }
 @media screen and (min-width: 767px){
