@@ -207,11 +207,11 @@ const end = document.querySelector("#end");
 const controller = new ScrollMagic.Controller();
 
 //Scenes
-const videoAnim = TweenMax.fromTo(video, 3, { scale:1 }, { scale: 15, display:"none" }, );
+const videoAnim = TweenMax.fromTo(video, 3, { scale:1 }, { scale: 5, display:"none" }, );
 // const videoAnim1 = TweenMax.fromTo(video, 3, { rotation:1 }, { rotation: 15 }, );
 //UNCOMENT IF IMG PLAN DON'T WORK
 let scene = new ScrollMagic.Scene({
-  duration: 2000,
+  duration: 1700,
   triggerElement: intro,
   triggerHook: 0
 })
@@ -232,7 +232,7 @@ const textAnim = TweenMax.fromTo(intro, 3, { opacity: 1 }, { opacity: 0 });
 
 let scene2 = new ScrollMagic.Scene({
   duration: 300,
-  offset: 1700
+  offset: 1900
 
 })
   .setTween(textAnim)
