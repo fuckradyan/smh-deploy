@@ -143,7 +143,52 @@ button{
   font-family: var(--body-font);
   font-size: var(--normal-font-size);
 }
-
+.scene{
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(#111425, #4826a5);
+  background-attachment: scroll;
+  overflow: hidden;
+}
+.scene i {
+  position: absolute;
+  background: #fff;
+  border-radius: 50%;
+  opacity: 0;
+  animation: anim ease infinite;
+}
+@keyframes anim {
+  0% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+  40%,60%{
+    opacity: 1;
+  }
+  100%{
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+}
+.moon{
+  position: absolute;
+  top: 10%;
+  left: 5%;
+  width: 200px;
+  height: 200px;
+  background: #f8faf0;
+  border-radius: 50%;
+  z-index: 100;
+  box-shadow: 0px 0px 8px rgba(255, 255, 255, 0.795);
+  -webkit-animation: moonlight 10s infinite; /* Safari 4.0 - 8.0 */
+  animation: moonlight 10s infinite;
+}
+@keyframes moonlight {
+  50%{
+    box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.795);
+  }
+}
 /*=============== REUSABLE CSS CLASSES ===============*/
 .section{
   padding: 4.5rem 0 2rem;
@@ -173,9 +218,9 @@ button{
   overflow: hidden;
   background:var(--container-color);
   border-radius:5rem;
-  box-shadow: 150px 10px -80px 30px rgba(245, 0, 0, 0.75);
 }
 .welcome-container:hover {
+  
   opacity: 0.7 !important;
 }
 .container{
@@ -207,7 +252,7 @@ li a:hover,.nav__logo:hover,i:hover, a i:hover, ul a:hover{
   position: fixed;
   top: 0;
   left: 0;
-  z-index: var(--z-fixed);
+  z-index: 200;
 }
 
 /*=============== NAV ===============*/
@@ -317,7 +362,6 @@ li a:hover,.nav__logo:hover,i:hover, a i:hover, ul a:hover{
   100%{
     opacity: 0;
     visibility: hidden;
-    display: none;
   }
 }
 img.rot {
@@ -568,12 +612,11 @@ img.rot {
   padding: 1rem 1.75rem;
   border-radius: .5rem;
   font-weight: var(--font-medium);
-  transition: background-color 1s step-end;
 }
 
-.button:hover{
-  background-color: var(--first-color-alt);
-}
+/* .button:hover{
+  background-color: var(--roadmap-container);
+} */
 
 .button__icon{
   font-size: 1.25rem;
@@ -587,13 +630,13 @@ img.rot {
 
   margin-top: 2%;
 }
-
+/* 
 .button--ghost:hover{
   background: none;
-}
+} */
 
 .button--link{
-  color: var(--title-color);
+  color: var(--roadmap-container);
 }
 
 .button--flex{
@@ -1550,31 +1593,44 @@ ol.gradient-list > li + li {
 
 }
 .cheese-animated{
-  height: 100px;
+  height: 130px;
   position: absolute;
   top: -10%;
   right: 5%;
   z-index: 0;
+
 }
 .rocket-animated{
   height: 150px;
   position: absolute;
-  top: 70%;
-  left: -8%;
-  z-index: 0;
+  bottom: 10%;
+  right: 0%;
+  opacity: 0.5;
+
 }
 .intro {
   height: 100vh;
  
 }
+.scene svg {
+  position: absolute;
+  bottom: -1px;
+  max-width: 100%;
+  z-index: 200;
+}
+.scene svg path{
+  fill: var(--body-color);
+
+}
 /* html{
   background: black;
 } */
-.intro video {
+.intro #welcomevid {
 
   height: 100%;
   width: 100%;
   object-fit: cover;
+  z-index: 0;
 }
 
 .intro h1 {
@@ -1584,6 +1640,7 @@ ol.gradient-list > li + li {
   transform: translate(-50%, -50%);
   font-size: 80px;
   color: white;
+  z-index: 999;
 }
 
 .test-show{
@@ -1607,8 +1664,9 @@ ol.gradient-list > li + li {
   width: 3rem;
   height: 3rem;
   border-radius: 1rem;
-  animation: arrowDown 1.8s infinite;
+  animation: arrowDown 5s infinite;
   opacity: 0.8;
+  z-index: 9999;
 
 }
 .arrowDown{

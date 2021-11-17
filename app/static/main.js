@@ -24,6 +24,7 @@ var loader = document.querySelector(".loader");
 window.addEventListener("load", vanish);
 function vanish(){
   loader.classList.add("vanish");
+  setTimeout(() => { loader.classList.add('d-none'); }, 1500);
 }
 gsap.registerPlugin(MotionPathPlugin);
 /*=============== SHOW MENU ===============*/
@@ -191,7 +192,9 @@ window.addEventListener("scroll", scrollHandler);
 
 
 const intro = document.querySelector(".intro");
-const video = intro.querySelector("video");
+//UNCOMENT IF IMG PLAN DON'T WORK
+// const video = intro.querySelector("video");
+const video = intro.querySelector("#welcomevid");
 const text = intro.querySelector("h1");
 //END SECTION
 
@@ -201,20 +204,32 @@ const end = document.querySelector("#end");
 const controller = new ScrollMagic.Controller();
 
 //Scenes
+const videoAnim = TweenMax.fromTo(video, 3, { scale:1 }, { scale: 15, display:"none" }, );
+// const videoAnim1 = TweenMax.fromTo(video, 3, { rotation:1 }, { rotation: 15 }, );
+//UNCOMENT IF IMG PLAN DON'T WORK
 let scene = new ScrollMagic.Scene({
-  duration: 3000,
+  duration: 2500,
   triggerElement: intro,
   triggerHook: 0
 })
+.setTween(videoAnim)
+
   .setPin(intro)
   .addTo(controller);
-
+// let scene_opt = new ScrollMagic.Scene({
+//     offset: 1500,
+//     duration: 1000,
+//     triggerElement: intro,
+//     triggerHook: 0
+//   })
+//   .setTween(videoAnim1)
+//     .addTo(controller);
 //Text Animation
 const textAnim = TweenMax.fromTo(intro, 3, { opacity: 1 }, { opacity: 0 });
 
 let scene2 = new ScrollMagic.Scene({
-  duration: 600,
-  offset: 2800
+  duration: 300,
+  offset: 2200
 
 })
   .setTween(textAnim)
@@ -222,14 +237,14 @@ let scene2 = new ScrollMagic.Scene({
   const textAnim1 = TweenMax.fromTo(text, 3, { opacity: 0 }, { opacity: 1 });
 
   let scene3 = new ScrollMagic.Scene({
-    duration: 600,
-    offset: 1500
+    duration: 300,
+    offset: 1900
   
   })
     .setTween(textAnim1)
     .addTo(controller);
 //Video Animation
-let accelamount = 0.1;
+let accelamount = 0.2;
 let scrollpos = 0;
 let delay = 0;
 
@@ -241,7 +256,7 @@ setInterval(() => {
   delay += (scrollpos - delay) * accelamount;
 
   video.currentTime = delay;
-}, 33.3);
+}, 45);
 // flying cheese
 
 const rHeight = document.getElementById('Roadmap').offsetHeight;
@@ -251,7 +266,7 @@ const rWidth = document.getElementById('Roadmap').offsetWidth;
 const tween = new TimelineLite();
 
 tween.add(
-  TweenLite.to('.cheese-animated', 1, {
+  TweenLite.to('.cheese-animated', 1, { scale:0.1,
     motionPath: {
       curviness: 1,
       autoRotate: true,
@@ -288,63 +303,37 @@ gsap.timeline()
     .from('.nav__list a', {opacity:0,xPercent:100,stagger:0.1,duration:0.5,ease:"back"})
 const tween1 = new TimelineLite();
 tween1.add(
-  TweenLite.to('.rocket-animated', 1, {
+  TweenLite.to('.rocket-animated', 1, { scale:10, opacity:5,
     motionPath: {
-      curviness: 3,
+      curviness: 2,
       autoRotate: true,
+      alignOrigin: [0.5, 0.5],
       path: [
-        // {
-        //   x: -window.innerHeight/15,
-        //   y: window.innerHeight/5
-        // },
-        // {
-        //   x: -rWidth*2.5,
-        //   y: rHeight/0.8
-        // },
+
         {
-          x:100,
-          y:-20
-        },
-        {
-          x:300,
-          y:10
-        },
-        {
-          x:500,
-          y:100
-        },
-        {
-          x:750,
-          y:-20
-        },
-        {
-          x:100,
-          y:-20
-        },
-        {
-          x:100,
-          y:-20
-        },
-        {
-          x:100,
-          y:-20
+          x:rWidth/8,
+          y:-rHeight*1,
         },
         // {
-        //   x: rWidth*0.5 ,
-        //   y: -rHeight/2.2
+        //   x:450,
+        //   y:-70,
         // },
         // {
-        //   x: rWidth*0.5 ,
-        //   y: -rHeight/2.2
+        //   x:400,
+        //   y:-50,
         // },
         // {
-        //   x: rWidth*0.3,
-        //   y: -rHeight/3
+        //   x:350,
+        //   y:-20,
         // },
         // {
-        //   x: rWidth*0.3,
-        //   y: -rHeight/4
+        //   x:550,
+        //   y:-120,
         // },
+        {
+          x:1400,
+          y:-400
+        }
           ]
         },
         ease: Power1.easeInOut
@@ -355,19 +344,32 @@ tween1.add(
       {
     triggerElement: '.trick',
     offset:1000,
-    duration:2500,
+    duration:2000,
     triggerHook: 1
     
       })
       .setTween(tween1)
       .addTo(controller);
 
-
-
-// $(function () { // wait for document ready
-//   // build scene
-//   var scene = new ScrollMagic.Scene({triggerElement: "#About"})
-//           .setPin("#welcome-container")
-//           .addIndicators({name: "1 (duration: 300)"}) // add indicators (requires plugin)
-//           .addTo(controller);
-// });
+function stars(){
+  let count = 50;
+  let scene = document.querySelector('.scene');
+  let i = 0;
+  while (i < count){
+    let star = document.createElement('i');
+    let x = Math.floor(Math.random()* window.innerWidth);
+    let y = Math.floor(Math.random()*window.innerHeight);
+    let duration = Math.random() * 10;
+    let size= Math.floor(Math.random() *4);
+    star.style.left = x +'px';
+    star.style.top= y + 'px';
+    star.style.width = 1 + size + 'px';
+    star.style.height = 1 + size + 'px';
+    star.style.boxShadow = `0px 0px ${Math.floor(Math.random()*10)}px white`;
+    star.style.animationDuration =5 + duration +'s';
+    star.style.animationDelay =duration +'s';
+    scene.appendChild(star);
+    i++;
+  }
+}
+stars();
