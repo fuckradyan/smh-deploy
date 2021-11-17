@@ -135,7 +135,7 @@ window.addEventListener('scroll', scrollUp)
 const sr = ScrollReveal({
     origin: 'top',
     distance: '60px',
-    duration: 1000,
+    duration: 800,
     delay: 400,
     // reset: true
 })
@@ -144,7 +144,10 @@ sr.reveal(`.welcome-container, .row`,{origin: 'top',interval:50, reset: true});
 sr.reveal(`.mySwiper, .swiper-srapper`,{interval:150, reset: true})
 sr.reveal(`.category__data, .trick__content, .footer__content`,{interval: 100});
 sr.reveal(`.about__img, .discount__data`,{origin: 'right'});
-
+sr.reveal(`.loader-cheese`,{origin: 'bottom'});
+sr.reveal(`.moon`,{origin: 'bottom'});
+sr.reveal(`.countdown-container`,{origin: 'top'});
+sr.reveal(`.faq-list, .faq-list div`,{origin: 'left', interval:50});
 const steps = document.querySelectorAll(".step");
 const timeline = document.querySelector(".timeline");
 const line = document.querySelector(".line");
@@ -208,7 +211,7 @@ const videoAnim = TweenMax.fromTo(video, 3, { scale:1 }, { scale: 15, display:"n
 // const videoAnim1 = TweenMax.fromTo(video, 3, { rotation:1 }, { rotation: 15 }, );
 //UNCOMENT IF IMG PLAN DON'T WORK
 let scene = new ScrollMagic.Scene({
-  duration: 2500,
+  duration: 2000,
   triggerElement: intro,
   triggerHook: 0
 })
@@ -229,16 +232,16 @@ const textAnim = TweenMax.fromTo(intro, 3, { opacity: 1 }, { opacity: 0 });
 
 let scene2 = new ScrollMagic.Scene({
   duration: 300,
-  offset: 2200
+  offset: 1700
 
 })
   .setTween(textAnim)
   .addTo(controller);
-  const textAnim1 = TweenMax.fromTo(text, 3, { opacity: 0 }, { opacity: 1 });
+  const textAnim1 = TweenMax.fromTo(text, 3, { opacity: 0, display:"none" }, { opacity: 1, display:"" });
 
   let scene3 = new ScrollMagic.Scene({
     duration: 300,
-    offset: 1900
+    offset: 1400
   
   })
     .setTween(textAnim1)
@@ -373,3 +376,25 @@ function stars(){
   }
 }
 stars();
+const countDown = () => {
+  const countDate = new Date('Nov 20, 2021 23:00:00').getTime();
+  const now = new Date().getTime();
+  const gap = countDate-now;
+
+
+  const second = 1000;
+  const minute = second * 60;
+  const hour = minute * 60;
+  const day = hour * 24;
+
+  const textDay = Math.floor(gap / day);
+  const textHour = Math.floor((gap % day) / hour);
+  const textMinute = Math.floor((gap % hour) / minute);
+  const textSecond = Math.floor((gap % minute) / second);
+  document.querySelector('.coundown-days').innerText = textDay;
+  document.querySelector('.coundown-hours').innerText = textHour;
+  document.querySelector('.coundown-minutes').innerText = textMinute;
+  document.querySelector('.coundown-seconds').innerText = textSecond;
+}
+
+setInterval(countDown, 1000);
