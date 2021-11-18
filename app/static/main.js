@@ -59,13 +59,32 @@ function linkAction(){
 navLink.forEach(n => n.addEventListener('click', linkAction))
 
 /*=============== HOME SWIPER ===============*/
+window.addEventListener('resize', function(event) {
+  var swiper = new Swiper(".mySwiper", {
+    slidesPerView: window.outerWidth>576 ? 4 : 'auto',
+    centeredSlides: false,
+    freeMode: true,
+    loop: 'true',
+    spaceBetween: 30 ,
+    lazy: {
+      loadPrevNext: true,
+      loadOnTransitionStart: true
+    },
+    pagination: {
+      el: ".swiper-pagination",
+    },
+  });
+}, true);
 var swiper = new Swiper(".mySwiper", {
-  slidesPerView: 4,
+  slidesPerView: window.outerWidth>576 ? 4 : 'auto',
   centeredSlides: false,
   freeMode: true,
   loop: 'true',
-  spaceBetween: 30,
- 
+  spaceBetween: 30 ,
+  lazy: {
+    loadPrevNext: true,
+    loadOnTransitionStart: true
+  },
   pagination: {
     el: ".swiper-pagination",
   },
@@ -79,7 +98,9 @@ function scrollHeader(){
 }
 window.addEventListener('scroll', scrollHeader)
 
-
+setTimeout(function() {
+  swiper.update();
+}, 500);
 
 /*=============== SCROLL SECTIONS ACTIVE LINK ===============*/
 const sections = document.querySelectorAll('section[id]')
@@ -118,6 +139,7 @@ function scrollUp(){
         scrollDown.classList.add('d-none');
     }
     if (window.outerWidth>767) {
+      
     if (prevScrollY<this.scrollY){
         header.classList.add('test-dishow');
         header.classList.remove('test-show');
@@ -127,6 +149,8 @@ function scrollUp(){
         header.classList.remove('test-dishow');
         
     }
+} else {
+  
 }
 }
 window.addEventListener('scroll', scrollUp)
