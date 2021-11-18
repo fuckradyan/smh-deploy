@@ -141,7 +141,7 @@ const sr = ScrollReveal({
 })
 sr.reveal(`.benefit-container, .benefit`,{origin: 'bottom',interval:150});
 sr.reveal(`.welcome-container, .row`,{origin: 'top',interval:50, reset: true});
-sr.reveal(`.mySwiper, .swiper-srapper`,{interval:150, reset: true})
+sr.reveal(`.mySwiper, .swiper-srapper`,{interval:150})
 sr.reveal(`.category__data, .trick__content, .footer__content`,{interval: 100});
 sr.reveal(`.about__img, .discount__data`,{origin: 'right'});
 sr.reveal(`.loader-cheese`,{origin: 'bottom'});
