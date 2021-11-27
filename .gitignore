@@ -2,3 +2,7 @@ ve
 /ve
 config.py
 __pycache__/
+*.pyc
+*.pyo
+build/
+dist/
