@@ -401,7 +401,7 @@ function stars(){
 }
 stars();
 const countDown = () => {
-  const countDate = new Date('Nov 30, 2021 23:00:00').getTime();
+  const countDate = new Date('Dec 1, 2021 00:00:00').getTime();
   const now = new Date().getTime();
   const gap = countDate-now;
 
