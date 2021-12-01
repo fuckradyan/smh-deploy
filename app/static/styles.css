@@ -102,8 +102,14 @@ body{
   color: var(--text-color);
 
 }
-
-
+h1 a{
+  color: white;
+}
+h1 a:hover{
+  background: var(--roadmap-container);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 h1,h2,h3,h4{
   color: var(--title-color);
   font-weight: var(--font-semi-bold);

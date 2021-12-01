@@ -19,7 +19,14 @@ function iOS() {
   || (navigator.userAgent.includes("Mac") && "ontouchend" in document)
 }
 
- document.addEventListener("DOMContentLoaded", ready);
+ document.addEventListener("DOMContentLoaded", function(){
+   ready;
+   const countDate = new Date('Dec 1, 2021 00:00:00').getTime();
+   const now = new Date().getTime();
+   if (countDate==now){
+
+   }
+ });
 var loader = document.querySelector(".loader");
 window.addEventListener("load", vanish);
 function vanish(){
@@ -400,25 +407,26 @@ function stars(){
   }
 }
 stars();
-const countDown = () => {
-  const countDate = new Date('Dec 1, 2021 00:00:00').getTime();
-  const now = new Date().getTime();
-  const gap = countDate-now;
+// const countDown = () => {
+//   const countDate = new Date('Dec 1, 2021 00:00:00').getTime();
+//   const now = new Date().getTime();
+//   const gap = countDate-now;
+  
 
 
-  const second = 1000;
-  const minute = second * 60;
-  const hour = minute * 60;
-  const day = hour * 24;
+//   const second = 1000;
+//   const minute = second * 60;
+//   const hour = minute * 60;
+//   const day = hour * 24;
 
-  const textDay = Math.floor(gap / day);
-  const textHour = Math.floor((gap % day) / hour);
-  const textMinute = Math.floor((gap % hour) / minute);
-  const textSecond = Math.floor((gap % minute) / second);
-  document.querySelector('.coundown-days').innerText = textDay;
-  document.querySelector('.coundown-hours').innerText = textHour;
-  document.querySelector('.coundown-minutes').innerText = textMinute;
-  document.querySelector('.coundown-seconds').innerText = textSecond;
-}
+//   const textDay = Math.floor(gap / day);
+//   const textHour = Math.floor((gap % day) / hour);
+//   const textMinute = Math.floor((gap % hour) / minute);
+//   const textSecond = Math.floor((gap % minute) / second);
+//   document.querySelector('.coundown-days').innerText = textDay;
+//   document.querySelector('.coundown-hours').innerText = textHour;
+//   document.querySelector('.coundown-minutes').innerText = textMinute;
+//   document.querySelector('.coundown-seconds').innerText = textSecond;
+// }
 
-setInterval(countDown, 1000);
+// setInterval(countDown, 1000);
